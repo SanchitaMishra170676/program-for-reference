@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner (System.in);
+        String s = sc.next();
+        String t = sc.next();
+        
+        boolean ans = true;
+        HashMap<Character,Character> mp = new HashMap<Character,Character>();
+        HashMap<Character,Character> mp2 = new HashMap<Character,Character>();
+  
+        
+        if(s.length() != t.length()){
+            ans = false;
+        }
+        
+        else{
+            for (int i=0;i<s.length();i++){
+                char chs = s.charAt(i);
+                 char cht = t.charAt(i);
+               
+                if(mp.containsKey(chs)) 
+                { 
+                    char a =mp.get(chs);
+                    if(a != cht){
+                        ans = false;
+                        break;
+                    }
+                        
+                } 
+                else if(mp2.containsKey(cht)){
+                    ans= false;
+                    break;
+                }
+                  else
+                { 
+                     mp.put(chs, cht); 
+                     mp2.put(cht,chs);
+                } 
+            }
+        }
+        
+        if(ans)
+            System.out.println("True");
+        else
+            System.out.println("False");
+    }
+    
+}

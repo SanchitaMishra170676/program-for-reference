@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+      Scanner sc = new Scanner (System.in);
+        String str = sc.next();
+        int n = str.length();
+        LinkedHashMap<String,Integer> mp = new LinkedHashMap<>();
+        for (int i=0; i<= n-10; i++ ){
+            String sub = str.substring(i,i+10);
+             //System.out.println(sub);
+            
+            if(mp.containsKey(sub)) 
+            { 
+                mp.put(sub, mp.get(sub) + 1); 
+            } 
+            else
+            { 
+                mp.put(sub, 1); 
+            } 
+        }
+        
+         for (Map.Entry<String,Integer> x : mp.entrySet())  
+            { 
+                String el = x.getKey(); 
+                int fre = x.getValue(); 
+  
+              if (fre > 1) 
+                   System.out.println(el); 
+        
+             } 
+        
+    }
+}
